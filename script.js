@@ -7,8 +7,13 @@ const button = document.getElementById("button");
 button.addEventListener('click', () => {
    const inputName = name.value;
    const inputYear = year.value;
-   if(inputName && !inputYear) h3.textContent += "?name=" + inputName;
-   else if(!inputName && inputYear) h3.textContent += "?year=" + inputYear;
-   else h3.textContent += "?name=" + inputName + "&year="+inputYear;
+
+	// 1st approach
+   // if(inputName && !inputYear) h3.textContent += "?name=" + inputName;
+   // else if(!inputName && inputYear) h3.textContent += "?year=" + inputYear;
+   // else h3.textContent += "?name=" + inputName + "&year="+inputYear;
+
+	//single liner
+	inputName && inputYear ? h3.textContent += `?name=${inputName}&year=${inputYear}`: inputName && !inputYear ? h3.textContent += `?name=${inputName}` : !inputName && inputYear ? h3.textContent += `?year=${inputYear}` : h3.textContent;
 });
 
